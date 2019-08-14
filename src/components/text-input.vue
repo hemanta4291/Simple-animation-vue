@@ -1,18 +1,38 @@
 <template>
   
-   <div class="text-input">
-       <h1>text</h1>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum a sapiente fugiat porro facilis quidem unde qui quae quaerat aliquam odio odit sunt iusto soluta eaque ex error non consequatur, vero ad eveniet dolorum aperiam nam doloribus? Mollitia, nihil aperiam maxime ea impedit animi qui consequuntur! Dolores, modi. Optio, nemo!</p>
-   </div>
+   <div class="textinput">
+     <h1>Text Input</h1>
+       <hr>
+       <text-input v-model='text' palceholder="Enter Username"
+       min-length = "5" ref="username"/>
+       <br>
+       <button @click="submitMethod">submit</button>
 
+       <p v-if='submitData'>result: {{text}}</p>
+
+   </div>
 </template>
 
 <script>
+import TextInput from './my-input-text'
 export default {
   data () {
     return {
-     
+      text : '',
+      submitData:false
     }
+  },
+  methods:{
+      submitMethod(){
+        this.$refs.username.validatadForm();
+        if(this.$refs.username.errorMassge){
+          return ''
+        }
+        this.submitData = true;
+      }
+  },
+  components:{
+    TextInput
   }
 }
 </script>

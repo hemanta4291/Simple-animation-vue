@@ -4,6 +4,8 @@
        <hr>
       <!-- <Myswitch :switch-value='SwitchValue' @switchValue="SwitchValue = !SwitchValue" /> -->
       <Myswitch v-model="SwitchValue"/>
+       <Myswitch v-model="SwitchValue1"/>
+        <Myswitch v-model="SwitchValue2"/>
    </div>
 </template>
 
@@ -14,7 +16,9 @@ import Myswitch from './Myswitch'
 export default {
   data(){
     return {
-      SwitchValue: true
+      SwitchValue: true,
+       SwitchValue1: true,
+        SwitchValue2: true
     }
   },
   components:{
